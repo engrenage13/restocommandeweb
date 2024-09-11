@@ -25,7 +25,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  justify-content: space-between;
   flex-grow: 2;
 }
 
@@ -34,4 +33,12 @@ body {
   color: #5db562;
   text-align: center;
   margin: 0;
+}
+
+.text {
+  text-align: center;
+  font-size: 5rem;
+  font-weight: bolder;
+  color: #edffea;
+  margin: 1rem;
 }
