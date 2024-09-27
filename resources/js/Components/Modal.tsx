@@ -1,6 +1,18 @@
+import { PropsWithChildren } from 'react';
 import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/react';
 
-export default function Modal({ children, show = false, maxWidth = '2xl', closeable = true, onClose = () => {} }) {
+export default function Modal({
+    children,
+    show = false,
+    maxWidth = '2xl',
+    closeable = true,
+    onClose = () => {},
+}: PropsWithChildren<{
+    show: boolean;
+    maxWidth?: 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+    closeable?: boolean;
+    onClose: CallableFunction;
+}>) {
     const close = () => {
         if (closeable) {
             onClose();
