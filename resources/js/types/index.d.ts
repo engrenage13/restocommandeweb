@@ -3,6 +3,7 @@ export interface User {
   firstname: string;
   lastname: string;
   email: string;
+  admin_level?: number;
   email_verified_at?: string;
 }
 

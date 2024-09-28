@@ -1,8 +1,8 @@
 import { FormEventHandler } from 'react';
 import GuestLayout from '@/Layouts/GuestLayout';
-import PrimaryButton from '@/Components/PrimaryButton';
+import PrimaryButton from '@/Components/Buttons/PrimaryButton';
 import { Head, useForm } from '@inertiajs/react';
-import FormField, { IFormField } from '@/Components/FormField';
+import FormField, { IFormField } from '@/Components/Form/FormField';
 
 export default function ConfirmPassword() {
   const { data, setData, post, processing, errors, reset } = useForm({

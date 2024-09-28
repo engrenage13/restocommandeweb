@@ -1,9 +1,9 @@
 import { FormEventHandler } from 'react';
-import Checkbox from '@/Components/Checkbox';
+import Checkbox from '@/Components/Form/Checkbox';
 import GuestLayout from '@/Layouts/GuestLayout';
-import PrimaryButton from '@/Components/PrimaryButton';
+import PrimaryButton from '@/Components/Buttons/PrimaryButton';
 import { Head, Link, useForm } from '@inertiajs/react';
-import FormField, { IFormField } from '@/Components/FormField';
+import FormField, { IFormField } from '@/Components/Form/FormField';
 
 export default function Login({ status, canResetPassword }: { status?: string, canResetPassword: boolean }) {
   const { data, setData, post, processing, errors, reset } = useForm({
