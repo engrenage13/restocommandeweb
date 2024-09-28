@@ -1,30 +1,41 @@
 import { useState, PropsWithChildren, ReactNode } from 'react';
-import ApplicationLogo from '@/Components/ApplicationLogo';
 import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
-import { Link, usePage } from '@inertiajs/react';
+import { Head, Link, usePage } from '@inertiajs/react';
 
-export default function Authenticated({ header, children }: PropsWithChildren<{ header?: ReactNode }>) {
+interface ILink {
+  route: string;
+  label: string;
+}
+
+export default function Authenticated({ header, children, title }: PropsWithChildren<{ header?: ReactNode, title?: string }>) {
   const user = usePage().props.auth.user;
 
   const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
 
+  const routes: ILink[] = [
+    {route: 'dashboard', label: 'Dashboard'}
+  ];
+
   return (
     <div className="min-h-screen bg-gray-100">
+      <Head title={title} />
       <nav className="bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
+          <div className="flex justify-between h-12">
             <div className="flex">
               <div className="shrink-0 flex items-center">
                 <Link href="/">
-                  <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
+                  Resto Commande
                 </Link>
               </div>
               <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                <NavLink href={route('dashboard')} active={route().current('dashboard')}>
-                  Dashboard
-                </NavLink>
+                {routes.map(x => 
+                  <NavLink href={route(x.route)} active={route().current(x.route)}>
+                    {x.label}
+                  </NavLink>
+                )}
               </div>
             </div>
 
@@ -93,9 +104,11 @@ export default function Authenticated({ header, children }: PropsWithChildren<{ 
 
         <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
           <div className="pt-2 pb-3 space-y-1">
-            <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
-              Dashboard
-            </ResponsiveNavLink>
+            {routes.map(x => 
+              <ResponsiveNavLink href={route(x.route)} active={route().current(x.route)}>
+                {x.label}
+              </ResponsiveNavLink>
+            )}
           </div>
 
           <div className="pt-4 pb-1 border-t border-gray-200">
@@ -107,8 +120,10 @@ export default function Authenticated({ header, children }: PropsWithChildren<{ 
             </div>
 
             <div className="mt-3 space-y-1">
-              <ResponsiveNavLink href={route('profile.edit')}>Modifier mon profil</ResponsiveNavLink>
-              <ResponsiveNavLink method="post" href={route('logout')} as="button">
+              <ResponsiveNavLink href={route('profile.edit')} active={route().current('profile.edit')}>
+                Modifier mon profil
+              </ResponsiveNavLink>
+              <ResponsiveNavLink method="post" href={route('logout')} as="button" style={{color: 'red'}}>
                 Me déconnecter
               </ResponsiveNavLink>
             </div>
@@ -118,7 +133,7 @@ export default function Authenticated({ header, children }: PropsWithChildren<{ 
 
       {header && (
         <header className="bg-white shadow">
-          <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">{header}</div>
+          <div className="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8">{header}</div>
         </header>
       )}
 
