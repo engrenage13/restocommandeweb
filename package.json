@@ -22,5 +22,9 @@
         "tailwindcss": "^3.2.1",
         "typescript": "^5.0.2",
         "vite": "^5.0"
+    },
+    "dependencies": {
+        "bootstrap-icons": "^1.11.3",
+        "react-fontawesome": "^1.7.1"
     }
 }

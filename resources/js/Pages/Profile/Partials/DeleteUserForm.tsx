@@ -1,10 +1,7 @@
 import { useRef, useState, FormEventHandler } from 'react';
 import DangerButton from '@/Components/Buttons/DangerButton';
-import InputError from '@/Components/Form/InputError';
-import InputLabel from '@/Components/Form/InputLabel';
 import Modal from '@/Components/Modal';
 import SecondaryButton from '@/Components/Buttons/SecondaryButton';
-import TextInput from '@/Components/Form/TextInput';
 import { useForm } from '@inertiajs/react';
 import FormField, { IFormField } from '@/Components/Form/FormField';
 
@@ -59,7 +56,7 @@ export default function DeleteUserForm({ className = '' }: { className?: string 
           Si vous supprimez votre compte vous perdrez toutes vos informations sur Resto Commande.
         </p>
       </header>
-      <DangerButton onClick={confirmUserDeletion}>Supprimer mon compte</DangerButton>
+      <DangerButton onClick={confirmUserDeletion} className="max-w-max">Supprimer mon compte</DangerButton>
       <Modal show={confirmingUserDeletion} onClose={closeModal}>
         <form onSubmit={deleteUser} className="p-6">
           <h2 className="text-lg font-medium text-gray-900">
@@ -70,7 +67,7 @@ export default function DeleteUserForm({ className = '' }: { className?: string 
           </p>
           {fields.map(x => <FormField {...x} />)}
 
-          <div className="mt-6 flex justify-end">
+          <div className="mt-6 flex justify-center sm:justify-end">
             <SecondaryButton onClick={closeModal}>Annuler</SecondaryButton>
 
             <DangerButton className="ms-3" disabled={processing}>
