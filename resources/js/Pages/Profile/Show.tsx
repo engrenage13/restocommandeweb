@@ -19,7 +19,7 @@ export default function Show() {
                   Modifier mon profil
                 </PrimaryButton>
               </Link>
-              <Link href={route('logout')}>
+              <Link href={route('logout')} method="post">
                 <SecondaryButton style={{color: 'red'}}>
                   Déconnexion
                 </SecondaryButton>

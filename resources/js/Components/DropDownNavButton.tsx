@@ -47,6 +47,7 @@ export default function DropDownNavButton({ active = false, links = [], classNam
             href={route(x.route)} 
             active={route().current(x.route)} 
             style={x.color ? {color: x.color} : {}}
+            method={x.method}
           >
             {x.label}
           </Dropdown.Link>)

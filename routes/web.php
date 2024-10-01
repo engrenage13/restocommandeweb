@@ -8,10 +8,6 @@ Route::get('/', function () {
   return Inertia::render('Home');
 })->name('home');
 
-Route::get('/dashboard', function () {
-  return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
   Route::get('profil', [ProfileController::class, 'show'])->name('profile.show');
   Route::get('/modif-profil', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -73,7 +73,7 @@ export default function NavBar() {
                 links={[
                   {route: 'profile.show', label: 'Mon profil'},
                   {route: 'profile.edit', label: 'Modifier mon profil'},
-                  {route: 'logout', label: 'Déconnexion', color: 'red'}
+                  {route: 'logout', label: 'Déconnexion', color: 'red', method: 'post'}
                 ]}
               >
                 {user.firstname}

@@ -5,7 +5,7 @@ export default function Guest({ children }: PropsWithChildren) {
   return (
     <div className="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
       <div>
-        <Link href="/" className="">
+        <Link href={route('home')} className="text-4xl font-extrabold text-green-900">
           Resto Commande
         </Link>
       </div>
